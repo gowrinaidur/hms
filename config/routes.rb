@@ -1,13 +1,17 @@
 Hms::Application.routes.draw do
   
+  devise_scope :user do
+    get 'patients/sign_up', :to => 'user_registrations#new', :user => { :user_type => 'patient' }
+    get 'doctors/sign_up', :to => 'user_registrations#new', :user => { :user_type => 'doctor' }
+  end 
 
+  #devise_for :users
+  devise_for :users, :controllers => { :registrations => 'UserRegistrations' }
+  
   resources :doctors
-
-
   resources :patients
 
 
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
