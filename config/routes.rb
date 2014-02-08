@@ -1,8 +1,8 @@
 Hms::Application.routes.draw do
   
   devise_scope :user do
-    get 'patients/sign_up', :to => 'user_registrations#new', :user => { :user_type => 'patient' }
-    get 'doctors/sign_up', :to => 'user_registrations#new', :user => { :user_type => 'doctor' }
+    get 'patients/register', :to => 'user_registrations#new', :user => { :user_type => 'patient' }, :as => :patient_registration
+    get 'doctors/register', :to => 'user_registrations#new', :user => { :user_type => 'doctor' }, :as => :doctor_registration
   end 
 
   #devise_for :users
