@@ -58,7 +58,7 @@
                   <%= link_to "Login", new_user_session_path  %>
                 </button>
                 
-                <div class="btn-group">
+                <div class="btn-group">                  
                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     Regestration
                     <span class="caret"></span>
@@ -69,7 +69,7 @@
                   </ul>
                 </div>
 
-              <% end %>
+              <% end %>              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -92,16 +92,22 @@
         </div><!--/span-->
         <div class="span9">
         	<ul class="nav nav-pills">
-			  <li class="<%= params[:controller]=='home' ? 'active' : '' %>">
-			    <%= link_to "Home",root_url %>
-			  </li>
-			  <li class="<%= params[:controller]=='patients' ? 'active' : '' %>">
-			    <%= link_to "Patients",patients_path %>
-			  </li>
-			  <li class="<%= params[:controller]=='doctors' ? 'active' : '' %>">
-			    <%= link_to "Doctors",doctors_path %>
-			  </li>			  
-			</ul>
+    			  <li class="<%= params[:controller]=='home' ? 'active' : '' %>">
+    			    <%= link_to "Home",root_url %>
+    			  </li>
+    			  <li class="<%= params[:controller]=='patients' ? 'active' : '' %>">
+    			    <%= link_to "Patients",patients_path %>
+    			  </li>
+    			  <li class="<%= params[:controller]=='doctors' ? 'active' : '' %>">
+    			    <%= link_to "Doctors",doctors_path %>
+    			  </li>			  
+    			</ul>
+          <ul class="nav nav-pills"style="float:right;" >
+            <li>
+              <script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
+              <g:hangout render="createhangout"></g:hangout>
+            </li>
+          </ul>
 
           <%= bootstrap_flash %>
           <%= yield %>
