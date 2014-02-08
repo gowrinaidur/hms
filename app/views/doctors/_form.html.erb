@@ -1,0 +1,61 @@
+<%= form_for(@doctor) do |f| %>
+  <% if @doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+      <% @doctor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_name %><br />
+    <%= f.text_field :clinic_name %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_street_address %><br />
+    <%= f.text_field :clinic_street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_city %><br />
+    <%= f.text_field :clinic_city %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_state %><br />
+    <%= f.text_field :clinic_state %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_zip_code %><br />
+    <%= f.text_field :clinic_zip_code %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_date %><br />
+    <%= f.date_select :birth_date %>
+  </div>
+  <div class="field">
+    <%= f.label :clinic_phone_no %><br />
+    <%= f.text_field :clinic_phone_no %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,43 @@
+<h1>Listing doctors</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Clinic name</th>
+    <th>Clinic street address</th>
+    <th>Clinic city</th>
+    <th>Clinic state</th>
+    <th>Clinic zip code</th>
+    <th>Email</th>
+    <th>Birth date</th>
+    <th>Clinic phone no</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @doctors.each do |doctor| %>
+  <tr>
+    <td><%= doctor.first_name %></td>
+    <td><%= doctor.last_name %></td>
+    <td><%= doctor.clinic_name %></td>
+    <td><%= doctor.clinic_street_address %></td>
+    <td><%= doctor.clinic_city %></td>
+    <td><%= doctor.clinic_state %></td>
+    <td><%= doctor.clinic_zip_code %></td>
+    <td><%= doctor.email %></td>
+    <td><%= doctor.birth_date %></td>
+    <td><%= doctor.clinic_phone_no %></td>
+    <td><%= doctor.description %></td>
+    <td><%= link_to 'Show', doctor %></td>
+    <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+    <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Doctor', new_doctor_path %>

@@ -1,6 +1,9 @@
 Hms::Application.routes.draw do
   
 
+  resources :doctors
+
+
   resources :patients
 
 
