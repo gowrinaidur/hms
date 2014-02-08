@@ -26,6 +26,8 @@ gem 'devise','~>3.2.2'
 gem 'cancan','~>1.6.10'
 gem 'rolify','~>3.4.0'
 
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
