@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140208142206) do
+ActiveRecord::Schema.define(:version => 20140208180028) do
 
   create_table "doctors", :force => true do |t|
     t.string   "first_name"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20140208142206) do
     t.string   "clinic_city"
     t.string   "clinic_state"
     t.string   "clinic_zip_code"
-    t.string   "email"
     t.date     "birth_date"
     t.string   "clinic_phone_no"
     t.text     "description"
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(:version => 20140208142206) do
     t.string   "city"
     t.string   "state"
     t.string   "zip_code"
-    t.string   "email"
     t.float    "height"
     t.float    "weight"
     t.datetime "created_at",     :null => false
@@ -73,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20140208142206) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "accountable_type"
+    t.integer  "accountable_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
