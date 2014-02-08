@@ -1,60 +1,41 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Doctor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>First name:</b>
-  <%= @doctor.first_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @doctor.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @doctor.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clinic_name) %>:</strong></dt>
+  <dd><%= @doctor.clinic_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clinic_street_address) %>:</strong></dt>
+  <dd><%= @doctor.clinic_street_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clinic_city) %>:</strong></dt>
+  <dd><%= @doctor.clinic_city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clinic_state) %>:</strong></dt>
+  <dd><%= @doctor.clinic_state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clinic_zip_code) %>:</strong></dt>
+  <dd><%= @doctor.clinic_zip_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @doctor.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birth_date) %>:</strong></dt>
+  <dd><%= @doctor.birth_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:clinic_phone_no) %>:</strong></dt>
+  <dd><%= @doctor.clinic_phone_no %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @doctor.description %></dd>
+</dl>
 
-<p>
-  <b>Last name:</b>
-  <%= @doctor.last_name %>
-</p>
-
-<p>
-  <b>Clinic name:</b>
-  <%= @doctor.clinic_name %>
-</p>
-
-<p>
-  <b>Clinic street address:</b>
-  <%= @doctor.clinic_street_address %>
-</p>
-
-<p>
-  <b>Clinic city:</b>
-  <%= @doctor.clinic_city %>
-</p>
-
-<p>
-  <b>Clinic state:</b>
-  <%= @doctor.clinic_state %>
-</p>
-
-<p>
-  <b>Clinic zip code:</b>
-  <%= @doctor.clinic_zip_code %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @doctor.email %>
-</p>
-
-<p>
-  <b>Birth date:</b>
-  <%= @doctor.birth_date %>
-</p>
-
-<p>
-  <b>Clinic phone no:</b>
-  <%= @doctor.clinic_phone_no %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @doctor.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              doctors_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_doctor_path(@doctor), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              doctor_path(@doctor),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

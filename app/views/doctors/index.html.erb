@@ -1,43 +1,56 @@
-<h1>Listing doctors</h1>
-
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Clinic name</th>
-    <th>Clinic street address</th>
-    <th>Clinic city</th>
-    <th>Clinic state</th>
-    <th>Clinic zip code</th>
-    <th>Email</th>
-    <th>Birth date</th>
-    <th>Clinic phone no</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @doctors.each do |doctor| %>
-  <tr>
-    <td><%= doctor.first_name %></td>
-    <td><%= doctor.last_name %></td>
-    <td><%= doctor.clinic_name %></td>
-    <td><%= doctor.clinic_street_address %></td>
-    <td><%= doctor.clinic_city %></td>
-    <td><%= doctor.clinic_state %></td>
-    <td><%= doctor.clinic_zip_code %></td>
-    <td><%= doctor.email %></td>
-    <td><%= doctor.birth_date %></td>
-    <td><%= doctor.clinic_phone_no %></td>
-    <td><%= doctor.description %></td>
-    <td><%= link_to 'Show', doctor %></td>
-    <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
-    <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Doctor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:clinic_name) %></th>
+      <th><%= model_class.human_attribute_name(:clinic_street_address) %></th>
+      <th><%= model_class.human_attribute_name(:clinic_city) %></th>
+      <th><%= model_class.human_attribute_name(:clinic_state) %></th>
+      <th><%= model_class.human_attribute_name(:clinic_zip_code) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:birth_date) %></th>
+      <th><%= model_class.human_attribute_name(:clinic_phone_no) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= link_to doctor.id, doctor_path(doctor) %></td>
+        <td><%= doctor.first_name %></td>
+        <td><%= doctor.last_name %></td>
+        <td><%= doctor.clinic_name %></td>
+        <td><%= doctor.clinic_street_address %></td>
+        <td><%= doctor.clinic_city %></td>
+        <td><%= doctor.clinic_state %></td>
+        <td><%= doctor.clinic_zip_code %></td>
+        <td><%= doctor.email %></td>
+        <td><%= doctor.birth_date %></td>
+        <td><%= doctor.clinic_phone_no %></td>
+        <td><%= doctor.description %></td>
+        <td><%=l doctor.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_doctor_path(doctor), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      doctor_path(doctor),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Doctor', new_doctor_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_doctor_path,
+            :class => 'btn btn-primary' %>

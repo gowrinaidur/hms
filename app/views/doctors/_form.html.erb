@@ -1,61 +1,74 @@
-<%= form_for(@doctor) do |f| %>
-  <% if @doctor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
-
-      <ul>
-      <% @doctor.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @doctor, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :clinic_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clinic_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :clinic_street_address, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clinic_street_address, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :clinic_city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clinic_city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :clinic_state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clinic_state, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :clinic_zip_code, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clinic_zip_code, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :birth_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :birth_date, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :clinic_phone_no, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :clinic_phone_no, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :clinic_name %><br />
-    <%= f.text_field :clinic_name %>
-  </div>
-  <div class="field">
-    <%= f.label :clinic_street_address %><br />
-    <%= f.text_field :clinic_street_address %>
-  </div>
-  <div class="field">
-    <%= f.label :clinic_city %><br />
-    <%= f.text_field :clinic_city %>
-  </div>
-  <div class="field">
-    <%= f.label :clinic_state %><br />
-    <%= f.text_field :clinic_state %>
-  </div>
-  <div class="field">
-    <%= f.label :clinic_zip_code %><br />
-    <%= f.text_field :clinic_zip_code %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date %>
-  </div>
-  <div class="field">
-    <%= f.label :clinic_phone_no %><br />
-    <%= f.text_field :clinic_phone_no %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                doctors_path, :class => 'btn' %>
   </div>
 <% end %>
