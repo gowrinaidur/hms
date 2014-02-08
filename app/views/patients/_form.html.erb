@@ -14,7 +14,8 @@
   <div class="control-group">
     <%= f.label :birth_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :birth_date, :class => 'date_select' %>
+      <%#= f.date_select :birth_date, :class => 'date_select' %>
+      <%= f.text_field :birth_date, :class => 'date_select datepicker' %>
     </div>
   </div>
   <div class="control-group">
