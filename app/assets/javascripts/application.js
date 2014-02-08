@@ -18,7 +18,6 @@
 $(function() {
   $('.datepicker').datepicker({
   	dateFormat:"yy-mm-dd"
-  	from: 1970
-  	to: 2002
+  	
   });
 });

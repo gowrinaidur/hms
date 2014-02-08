@@ -49,8 +49,8 @@
           <a class="brand" href="#">HMS</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav" style="float: right;">
-              <li><%= link_to "Login", "#"  %></li>
-              <li><%= link_to "Register", "#"  %></li>              
+              <li><%= link_to "Login", new_user_session_path  %></li>
+              <li><%= link_to "Register", new_user_registration_path  %></li>              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -63,11 +63,11 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <!-- <li class="nav-header">Sidebar</li> -->
-              <li><%= link_to "About Us", "#"  %></li>
+              <li><%= link_to "About Us", "/about_us"  %></li>
               <li><%= link_to "Programs", "#"  %></li>
               <li><%= link_to "Videos", "#"  %></li>
-              <li><%= link_to "Blog", "#"  %></li>
-              <li><%= link_to "Help", "#"  %></li>
+              <li><%= link_to "Blog", "/blog"  %></li>
+              <li><%= link_to "Help", "/help"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
