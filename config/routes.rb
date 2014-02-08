@@ -1,6 +1,9 @@
 Hms::Application.routes.draw do
   
 
+  resources :patients
+
+
   devise_for :users
 
   # The priority is based upon order of creation:
