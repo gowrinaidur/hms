@@ -59,7 +59,7 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
+        <div class="span3" style="width: 15%">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <!-- <li class="nav-header">Sidebar</li> -->
@@ -72,6 +72,18 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+        	<ul class="nav nav-pills">
+			  <li class="<%= params[:controller]=='home' ? 'active' : '' %>">
+			    <%= link_to "Home",root_url %>
+			  </li>
+			  <li class="<%= params[:controller]=='patients' ? 'active' : '' %>">
+			    <%= link_to "Patients",patients_path %>
+			  </li>
+			  <li class="<%= params[:controller]=='doctors' ? 'active' : '' %>">
+			    <%= link_to "Doctors",doctors_path %>
+			  </li>			  
+			</ul>
+
           <%= bootstrap_flash %>
           <%= yield %>
         </div>

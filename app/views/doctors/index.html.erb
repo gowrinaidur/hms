@@ -17,7 +17,7 @@
       <th><%= model_class.human_attribute_name(:birth_date) %></th>
       <th><%= model_class.human_attribute_name(:clinic_phone_no) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:created_at) %></th> -->
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -36,7 +36,7 @@
         <td><%= doctor.birth_date %></td>
         <td><%= doctor.clinic_phone_no %></td>
         <td><%= doctor.description %></td>
-        <td><%=l doctor.created_at %></td>
+        <!-- <td><%#=l doctor.created_at %></td> -->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_doctor_path(doctor), :class => 'btn btn-mini' %>

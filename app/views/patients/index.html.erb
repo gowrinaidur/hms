@@ -17,7 +17,7 @@
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:height) %></th>
       <th><%= model_class.human_attribute_name(:weight) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:created_at) %></th> -->
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -36,7 +36,7 @@
         <td><%= patient.email %></td>
         <td><%= patient.height %></td>
         <td><%= patient.weight %></td>
-        <td><%=l patient.created_at %></td>
+        <!-- <td><%#=l patient.created_at %></td> -->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_patient_path(patient), :class => 'btn btn-mini' %>
