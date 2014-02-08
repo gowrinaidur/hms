@@ -1,3 +1,4 @@
 class Patient < ActiveRecord::Base
-  attr_accessible :birth_date, :city,  :first_name, :height, :last_name, :phone_number, :state, :street_address, :weight, :zip_code
+  attr_accessible :birth_date, :city, :first_name, :height, :last_name, :phone_number, :state, :street_address, :weight, :zip_code
+  has_one :user ,:as=>:accountable,:dependent=>:destroy
 end
