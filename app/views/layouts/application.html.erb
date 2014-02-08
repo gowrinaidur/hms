@@ -82,11 +82,11 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <!-- <li class="nav-header">Sidebar</li> -->
-              <li><%= link_to "About Us", "/about_us"  %></li>
+              <li class="<%= params[:action]=='about_us' ? 'active' : '' %>"><%= link_to "About Us", "/about_us"  %></li>
               <li><%= link_to "Programs", "#"  %></li>
               <li><%= link_to "Videos", "#"  %></li>
-              <li><%= link_to "Blog", "/blog"  %></li>
-              <li><%= link_to "Help", "/help"  %></li>
+              <li class="<%= params[:action]=='blog' ? 'active' : '' %>"><%= link_to "Blog", "/blog"  %></li>
+              <li class="<%= params[:action]=='help' ? 'active' : '' %>"><%= link_to "Help", "/help"  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

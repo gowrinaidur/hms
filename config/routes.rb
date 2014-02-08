@@ -18,6 +18,9 @@ Hms::Application.routes.draw do
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
+  match 'about_us'=>'home#about_us'
+  match 'blog'=>'home#blog'
+  match 'help'=>'home#help'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
