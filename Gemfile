@@ -5,7 +5,12 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2','~>0.3.15'
+# group :production do
+# 	gem 'pg'
+# end
+# group :development do 
+	gem 'mysql2','~>0.3.15'
+#end
 
 gem 'execjs','~>2.0.2'
 gem 'jquery-ui-rails'

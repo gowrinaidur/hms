@@ -1,13 +1,18 @@
 class UserRegistrationsController < Devise::RegistrationsController
 	
 	def create
-	    build_resource
-
-	    # customized code begin
+		# customized code begin
 	    params[:user] ||= {}
 	    params[:user][:user_type] ||= 'patient'
+
+	    user_type = params[:user][:user_type]
+	    params[:user].delete(:user_type)
+
+	    build_resource
+
+	    
 	    # crate a new child instance depending on the given user type
-	    child_class = params[:user][:user_type].camelize.constantize
+	    child_class = user_type.camelize.constantize
 	    resource.accountable = child_class.new(params[child_class.to_s.underscore.to_sym])
 
 	    # first check if child instance is valid
@@ -15,6 +20,7 @@ class UserRegistrationsController < Devise::RegistrationsController
 	    # it's all being saved at once
 	    valid = resource.valid?
 	    valid = resource.accountable.valid? && valid
+		
 
 	    # customized code end
 
@@ -30,8 +36,9 @@ class UserRegistrationsController < Devise::RegistrationsController
 	      end
 	    else
 	      clean_up_passwords(resource)
-	      respond_with_navigational(resource) { 
-	      	render :new# => params and return false
+	      respond_with_navigational(resource) {
+	      	params[:user][:user_type] = user_type 
+	      	render :new # => params and return false
 	      	#render_with_scope :new 
 	      }
 	    end
